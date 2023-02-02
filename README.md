@@ -71,3 +71,44 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
   Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+
+## 
+
+## swagger auth
+#### 2023.01.20 JDG
+cli> npm install express-basic-auth
+```text
+//auth.module
+ConfigModule.forRoot(),
+
+//app.module
+ConfigModule.forRoot(),
+MongooseModule.forRoot(process.env.MONGODB_URI, {
+  userNewUrlParse: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+})
+```
+
+## multer (image upload)
+#### 2023.01.20 JDG
+cli> npm install --save-dev @types/multer
+```text
+//users.module
+import
+MulterModule.register({
+  dest: './upload',
+}),
+
+//users.controller
+
+//create multerOptions 
+
+//add middleware ( main.ts )
+NestExpressApplication
+app.useStaticAssets(path.join(__dirname, './common', 'uploads'), {
+    prefix: 'media',
+  });
+```
